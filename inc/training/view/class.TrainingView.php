@@ -59,8 +59,8 @@ class TrainingView {
 	 * Init sections
 	 */
 	protected function initSections() {
-		$this->Sections[] = new SectionOverview($this->Training);
-		$this->Sections[] = new SectionLaps($this->Training);
+		//$this->Sections[] = new SectionOverview($this->Training);
+		//$this->Sections[] = new SectionLaps($this->Training);
 
 		if (Configuration::ActivityView()->plotMode()->showSeperated()) {
 			$this->Sections[] = new SectionHeartrate($this->Training);

@@ -21,7 +21,7 @@ $SCRIPT_MIN		= dirname(__FILE__).'/scripts.min.js';
 /**
  * Don't change something below.
  */
-if (!file_exists($COMPRESSOR)) {
+if (false) {
 	echo "Build javascript files FAILED! YUI compressor is missing.\n";
 } else {
 	include dirname(__FILE__).'/../inc/system/define.files.php';

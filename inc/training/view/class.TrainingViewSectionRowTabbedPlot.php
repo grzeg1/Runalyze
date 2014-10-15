@@ -79,25 +79,36 @@ abstract class TrainingViewSectionRowTabbedPlot extends TrainingViewSectionRow {
 	 * Display plot
 	 */
 	protected function displayPlot() {
+
 		echo '<div id="training-view-tabbed-'.$this->cssID.'" class="training-row-plot">';
 
-		$first = true;
-		foreach ($this->RightContent as $key => $Content) {
-			echo '<div class="change" id="training-view-tabbed-'.$this->cssID.'-'.$key.'"'.(!$first ? ' style="display:none;"' : '').'>';
+		$num = 0;
+        foreach ($this->RightContent as $key => $Content) {
+            if ($num == 0) {
+                echo '<div id="plot-' . $Content->getKey() . '" class="plot-container" style="visibility:visible">';
+                $Content->display();
+                echo '</div>';
+            } else {
+                echo '<div class="change" id="training-view-tabbed-' . $this->cssID . '-' . $key . '"' . ($num > 1 ? ' style="display:none;"' : '') . '>';
 
-			if ($Content instanceof TrainingPlot) {
-				echo '<div id="plot-'.$Content->getKey().'" class="plot-container">';
-				$Content->display();
-				echo '</div>';
-			} else {
-				echo $Content;
-			}
+                if ($Content instanceof TrainingPlot) {
+                    echo '<div id="plot-' . $Content->getKey() . '" class="plot-container">';
+                    $Content->display();
+                    echo '</div>';
+                } else {
+                    echo $Content;
+                }
 
-			echo '</div>';
+                echo '</div>';
+            }
+            $num++;
+        }
 
-			$first = false;
-		}
+        echo '</div>';
+        $Table = new TableLapsComputed($this->Training);
+        $InfoLink = Ajax::window('<a href="'.$this->Training->Linker()->urlToRoundsInfo().'">'.__('More details about your laps').'</a>', 'normal');
 
-		echo '</div>';
-	}
+        echo ('<div style=\'width: 300px; float:right; overflow-y:scroll;height: 400px;\'>'. HTML::info( $InfoLink ).$Table->getCode().'</div>');
+
+    }
 }

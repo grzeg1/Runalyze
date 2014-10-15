@@ -1365,8 +1365,8 @@ tr.space-line.zebra-corrector td {
   float: left;
   width: 300px;
   margin-left: -301px;
-  max-height: 200px;
-  overflow-y: scroll;
+  height: 400px;
+  overflow-y: hidden;
 }
 .training-row-info .boxed-values {
   margin-bottom: 0;
@@ -1394,6 +1394,8 @@ tr.space-line.zebra-corrector td {
 }
 .training-row-plot {
   overflow: hidden;
+    float:left;
+    margin-left: 15px;
 }
 .training-row-plot .flot {
   background: transparent;
@@ -1691,15 +1693,16 @@ tr.space-line.zebra-corrector td {
 .boxed-value-container.with-icon  > i,
 .boxed-value-container.with-icon  > span > i {
   position: absolute;
-  left: 5px;
-  top: 50%;
-  margin-top: -7px;
-  font-size: 14px;
-  line-height: 14px;
+  left: 132px;
+  top: 7px;
+  //margin-top: -7px;
+  font-size: 12px;
+  line-height: 12px;
+    color: #666;
 }
 .boxed-value-container.with-icon i.fa {
-  height: 14px;
-  width: 14px;
+  height: 12px;
+  width: 12px;
 }
 .boxed-value {
   display: block;
@@ -1708,6 +1711,7 @@ tr.space-line.zebra-corrector td {
   font-weight: bold;
   height: 16px;
   white-space: nowrap;
+  margin-right:15px;
 }
 .boxed-value .boxed-value-unit {
   display: inline;
@@ -1719,6 +1723,8 @@ tr.space-line.zebra-corrector td {
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
+    margin-right:15px;
+
 }
 .flexible-height .boxed-value {
   white-space: normal;
